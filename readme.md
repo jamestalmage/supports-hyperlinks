@@ -4,7 +4,7 @@
 
 Terminal emulators are [starting to support hyperlinks](https://gist.github.com/egmontkob/eb114294efbcd5adb1944c9f3cb5feda). While many terminals have long detected URL's and linkified them, allowing you to Command-Click or Control-Click them to open a browser, you were forced to print the long unsightly URL's on the screen. As of spring 2017 [a few terminals](https://gist.github.com/egmontkob/eb114294efbcd5adb1944c9f3cb5feda) began supporting HTML like links, where the link text and destination could be specified separately.
 
-This module allows you to detect if hyperlinks are supported in the current Terminal, from the current screen.
+This module allows you to detect if hyperlinks are supported in the current Terminal.
 
 As this is a new development, we anticipate the list of supported Terminals to grow rapidly. Please open an issue or submit a PR as new Terminals implement support.
 
