@@ -2,6 +2,15 @@
 const supportsColor = require('supports-color');
 const hasFlag = require('has-flag');
 
+function parseVersion(versionString) {
+	const versions = (versionString || '').split('.').map(n => parseInt(n, 10));
+	return {
+		major: versions[0],
+		minor: versions[1],
+		patch: versions[2]
+	};
+}
+
 function supportsHyperlink(stream) {
 	const env = process.env;
 
@@ -39,14 +48,14 @@ function supportsHyperlink(stream) {
 	}
 
 	if ('TERM_PROGRAM' in env) {
-		const [majorVersion, minorVersion] = (env.TERM_PROGRAM_VERSION || '').split('.').map(n => parseInt(n, 10));
+		const version = parseVersion(env.TERM_PROGRAM_VERSION);
 
 		switch (env.TERM_PROGRAM) {
 			case 'iTerm.app':
-				if (majorVersion === 3) {
-					return minorVersion >= 1;
+				if (version.major === 3) {
+					return version.minor >= 1;
 				}
-				return majorVersion > 3;
+				return version.major > 3;
 			// No default
 		}
 	}
@@ -56,8 +65,8 @@ function supportsHyperlink(stream) {
 		if (env.VTE_VERSION === '0.50.0') {
 			return false;
 		}
-		const [majorVersion, minorVersion] = env.VTE_VERSION.split('.').map(n => parseInt(n, 10));
-		return majorVersion > 0 || minorVersion >= 50;
+		const version = parseVersion(env.VTE_VERSION);
+		return version.major > 0 || version.minor >= 50;
 	}
 
 	return false;
