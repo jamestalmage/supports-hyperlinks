@@ -21,7 +21,10 @@
     ],
     "browser": "browser.js",
     "keywords": [
-        ""
+        "link",
+        "terminal",
+        "hyperlink",
+        "cli"
     ],
     "dependencies": {
         "has-flag": "^2.0.0",
