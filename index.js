@@ -60,11 +60,8 @@ function supportsHyperlink(stream) {
 		}
 	}
 
-	if ('VTE_VERSION' in env) {
-		// 0.50.0 was supposed to support hyperlinks, but throws a segfault
-		if (env.VTE_VERSION === '0.50.0') {
-			return false;
-		}
+	// 0.50.0 was supposed to support hyperlinks, but throws a segfault
+	if ('VTE_VERSION' in env && env.VTE_VERSION !== '0.50.0') {
 		const version = parseVersion(env.VTE_VERSION);
 		return version.major > 0 || version.minor >= 50;
 	}
