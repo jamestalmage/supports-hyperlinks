@@ -123,6 +123,22 @@ test('supported in VTE 1.0.0', t => {
 	}));
 });
 
+test('not supported in VTE 4601 (0.46.1)', t => {
+	t.false(isSupported({
+		env: {
+			VTE_VERSION: '4601'
+		}
+	}));
+});
+
+test('supported in VTE 5105 (0.51.5)', t => {
+	t.true(isSupported({
+		env: {
+			VTE_VERSION: '5105'
+		}
+	}));
+});
+
 test('no-color flag disables support', t => {
 	t.false(isSupported({
 		argv: ['--no-color'],

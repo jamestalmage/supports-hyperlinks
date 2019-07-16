@@ -3,6 +3,15 @@ const supportsColor = require('supports-color');
 const hasFlag = require('has-flag');
 
 function parseVersion(versionString) {
+	if (/^\d{3,4}$/.test(versionString)) {
+		// Env var doesn't always use dots. example: 4601 => 46.1.0
+		const m = /(\d{1,2})(\d{2})/.exec(versionString);
+		return {
+			major: 0,
+			minor: parseInt(m[1], 10),
+			patch: parseInt(m[2], 10)
+		};
+	}
 	const versions = (versionString || '').split('.').map(n => parseInt(n, 10));
 	return {
 		major: versions[0],
