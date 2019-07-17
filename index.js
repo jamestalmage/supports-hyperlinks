@@ -12,6 +12,7 @@ function parseVersion(versionString) {
 			patch: parseInt(m[2], 10)
 		};
 	}
+
 	const versions = (versionString || '').split('.').map(n => parseInt(n, 10));
 	return {
 		major: versions[0],
@@ -21,7 +22,7 @@ function parseVersion(versionString) {
 }
 
 function supportsHyperlink(stream) {
-	const env = process.env;
+	const {env} = process;
 
 	if ('FORCE_HYPERLINK' in env) {
 		return !(env.FORCE_HYPERLINK.length > 0 && parseInt(env.FORCE_HYPERLINK, 10) === 0);
@@ -64,6 +65,7 @@ function supportsHyperlink(stream) {
 				if (version.major === 3) {
 					return version.minor >= 1;
 				}
+
 				return version.major > 3;
 			// No default
 		}
@@ -74,6 +76,7 @@ function supportsHyperlink(stream) {
 		if (env.VTE_VERSION === '0.50.0') {
 			return false;
 		}
+
 		const version = parseVersion(env.VTE_VERSION);
 		return version.major > 0 || version.minor >= 50;
 	}
