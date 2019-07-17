@@ -10,7 +10,7 @@
         "url": "github.com/jamestalmage"
     },
     "engines": {
-        "node": ">=4"
+        "node": ">=8"
     },
     "scripts": {
         "test": "xo && nyc ava"
