@@ -243,6 +243,15 @@ test('disabled in TEAMCITY', t => {
 	}));
 });
 
+test('enabled in Netlify build logs', t => {
+	t.true(isSupported({
+		env: {
+			CI: 'true',
+			NETLIFY: 'true'
+		}
+	}));
+});
+
 test('not supported if TERM_PROGRAM exists, but TERM_VERSION does not', t => {
 	t.false(isSupported({
 		env: {
