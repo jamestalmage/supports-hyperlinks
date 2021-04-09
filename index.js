@@ -36,6 +36,10 @@ function supportsHyperlink(stream) {
 		return true;
 	}
 
+	if ('NETLIFY' in env) {
+		return true;
+	}
+
 	// If they specify no colors, they probably don't want hyperlinks.
 	if (!supportsColor.supportsColor(stream)) {
 		return false;
@@ -47,10 +51,6 @@ function supportsHyperlink(stream) {
 
 	if (process.platform === 'win32') {
 		return false;
-	}
-
-	if ('NETLIFY' in env) {
-		return true;
 	}
 
 	if ('CI' in env) {
