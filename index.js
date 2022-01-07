@@ -36,6 +36,7 @@ function supportsHyperlink(stream) {
 		return true;
 	}
 
+	// Netlify does not run a TTY, it does not need `supportsColor` check
 	if ('NETLIFY' in env) {
 		return true;
 	}
