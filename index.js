@@ -71,6 +71,8 @@ function supportsHyperlink(stream) {
 				}
 
 				return version.major > 3;
+			case 'vscode':
+				return version.major > 1 || version.major === 1 && version.minor >= 72;
 			// No default
 		}
 	}
