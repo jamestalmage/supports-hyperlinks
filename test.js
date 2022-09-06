@@ -91,6 +91,48 @@ test('not supported iTerm 3.1, non-tty stream', t => {
 	));
 });
 
+test('not supported WezTerm 20200620 no stream supplied', t => {
+	t.true(isSupported({
+		env: {
+			TERM_PROGRAM: 'WezTerm',
+			TERM_PROGRAM_VERSION: '20200620-160318-e00b076c'
+		}
+	}));
+});
+
+test('not supported WezTerm 20200608 no stream supplied', t => {
+	t.false(isSupported({
+		env: {
+			TERM_PROGRAM: 'WezTerm',
+			TERM_PROGRAM_VERSION: '20200608-110940-3fb3a61'
+		}
+	}));
+});
+
+test('supported WezTerm 20200620, tty stream', t => {
+	t.true(isSupported({
+		env: {
+			TERM_PROGRAM: 'WezTerm',
+			TERM_PROGRAM_VERSION: '20200620-160318-e00b076c'
+		},
+		stream: {
+			isTTY: true
+		}
+	}));
+});
+
+test('not supported WezTerm 20200608, tty stream', t => {
+	t.false(isSupported({
+		env: {
+			TERM_PROGRAM: 'WezTerm',
+			TERM_PROGRAM_VERSION: '20200608-110940-3fb3a61'
+		},
+		stream: {
+			isTTY: true
+		}
+	}));
+});
+
 test('not supported in VTE 0.50.0', t => {
 	t.false(isSupported({
 		env: {
