@@ -10,28 +10,24 @@ As this is a new development, we anticipate the list of supported Terminals to g
 
 ## Install
 
+```sh
+npm install supports-hyperlinks
 ```
-$ npm install supports-hyperlinks
-```
-
 
 ## Usage
 
 ```js
-const supportsHyperlinks = require('supports-hyperlinks');
+import process from 'node:process';
+import supportsHyperlinks from 'supports-hyperlinks';
 
-if (supportsHyperlinks.stdout) {
+if (supportsHyperlinks(process.stdout)) {
 	console.log('Terminal stdout supports hyperlinks');
 }
 
-if (supportsHyperlinks.stderr) {
+if (supportsHyperlinks(process.stderr)) {
 	console.log('Terminal stderr supports hyperlinks');
 }
 ```
-
-## API
-
-Returns an `Object` with a `stdout` and `stderr` property for testing either streams. Each property is a `boolean`, indicating whether or not hyperlinks are supported.
 
 ## Info
 
