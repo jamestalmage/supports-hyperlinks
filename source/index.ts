@@ -44,7 +44,6 @@ export default function supportsHyperlinks(stream?: WriteStream) {
 	}
 
 	// If they specify no colors, they probably don't want hyperlinks.
-	// @ts-expect-error: `stream` should be optional https://github.com/chalk/supports-color/pull/138
 	if (!createSupportsColor(stream)) {
 		return false;
 	}

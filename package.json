@@ -35,7 +35,7 @@
     ],
     "dependencies": {
         "has-flag": "^5.0.1",
-        "supports-color": "^9.2.2"
+        "supports-color": "^9.2.3"
     },
     "devDependencies": {
         "@sindresorhus/tsconfig": "^3.0.1",
