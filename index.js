@@ -9,7 +9,7 @@ const hasFlag = require('has-flag');
 function parseVersion(versionString) {
 	if (/^\d{3,4}$/.test(versionString)) {
 		// Env var doesn't always use dots. example: 4601 => 46.1.0
-		const m = /(\d{1,2})(\d{2})/.exec(versionString) || [];
+		const m = /(\d{1,2})(\d{2})/.exec(versionString) ?? [];
 		return {
 			major: 0,
 			minor: parseInt(m[1], 10),
