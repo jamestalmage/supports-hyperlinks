@@ -15,7 +15,7 @@
     "scripts": {
         "prepublishOnly": "npm run create-types",
         "test": "xo && nyc ava",
-        "create-types": "tsc index.js --allowJs  --declaration --emitDeclarationOnly"
+        "create-types": "tsc index.js --allowJs  --declaration --emitDeclarationOnly --declarationMap"
     },
     "files": [
         "index.js",
