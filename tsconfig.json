@@ -6,7 +6,6 @@
 	"compilerOptions": {
 		"allowJs": true,
 		"checkJs": true,
-    "noEmit": true,
-		"strict": false
+    "noEmit": true
 	}
 }
