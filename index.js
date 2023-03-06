@@ -3,9 +3,9 @@ const supportsColor = require('supports-color');
 const hasFlag = require('has-flag');
 
 /**
- * @param {string} versionString
- * @returns {{ major: number, minor: number, patch: number }}
- */
+@param {string} versionString
+@returns {{ major: number, minor: number, patch: number }}
+*/
 function parseVersion(versionString) {
 	if (/^\d{3,4}$/.test(versionString)) {
 		// Env var doesn't always use dots. example: 4601 => 46.1.0
@@ -26,9 +26,9 @@ function parseVersion(versionString) {
 }
 
 /**
- * @param {{ isTTY?: boolean | undefined }} stream
- * @returns {boolean}
- */
+@param {{ isTTY?: boolean | undefined }} stream
+@returns {boolean}
+*/
 function supportsHyperlink(stream) {
 	const {
 		CI,
