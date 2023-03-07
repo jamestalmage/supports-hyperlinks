@@ -15,7 +15,7 @@
     "scripts": {
         "prepublishOnly": "npm run create-types",
         "test": "xo && nyc ava && tsc",
-        "create-types": "tsc -p declaration.tsconfig.json"
+        "create-types": "tsc --project declaration.tsconfig.json"
     },
     "files": [
         "index.js",
