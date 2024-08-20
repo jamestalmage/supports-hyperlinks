@@ -67,7 +67,7 @@ function supportsHyperlink(stream) {
 	}
 
 	// Windows Terminal
-	if ('WT_SESSION' in env) {
+	if ('WT_SESSION' in process.env) {
 		return true;
 	}
 

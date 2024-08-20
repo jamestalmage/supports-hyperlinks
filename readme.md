@@ -10,8 +10,8 @@ As this is a new development, we anticipate the list of supported Terminals to g
 
 ## Install
 
-```
-$ npm install supports-hyperlinks
+```sh
+npm install supports-hyperlinks
 ```
 
 
