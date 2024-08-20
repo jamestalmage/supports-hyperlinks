@@ -66,6 +66,11 @@ function supportsHyperlink(stream) {
 		return false;
 	}
 
+	// Windows Terminal
+	if ('WT_SESSION' in env) {
+		return true;
+	}
+
 	if (process.platform === 'win32') {
 		return false;
 	}
