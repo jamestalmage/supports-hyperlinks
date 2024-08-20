@@ -45,7 +45,8 @@ function supportsHyperlink(stream) {
 		return false;
 	}
 
-	if ("WT_SESSION" in env) {
+	// Windows Terminal
+	if ('WT_SESSION' in env) {
 		return true;
 	}
 
