@@ -180,6 +180,16 @@ test('supported in VTE 5105 (0.51.5)', t => {
 		}
 	}));
 });
+test('supported in alacritty', t => {
+	t.true(isSupported({
+		env: {
+			TERM: 'alacritty',
+		},
+	}));
+});
+test('empty env not supported', t => {
+	t.false(isSupported({env: {}}));
+});
 
 test.failing('no-color flag disables support', t => {
 	t.false(isSupported({
