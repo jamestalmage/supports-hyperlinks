@@ -142,11 +142,32 @@ test('not supported vscode <= 1.0 no stream supplied', t => {
 	}));
 });
 
-test('not supported vscode <= 1.0 no tty stream', t => {
+test('not supported vscode <= 1.0 tty stream', t => {
 	t.false(isSupported({
 		env: {
 			TERM_PROGRAM: 'vscode',
 			TERM_PROGRAM_VERSION: '0.72.0'
+		},
+		stream: {
+			isTTY: true
+		}
+	}));
+});
+
+test('supported vscode 2.70.0 no stream supplied', t => {
+	t.true(isSupported({
+		env: {
+			TERM_PROGRAM: 'vscode',
+			TERM_PROGRAM_VERSION: '2.70.0'
+		}
+	}));
+});
+
+test('supported vscode 2.70.0 tty stream', t => {
+	t.true(isSupported({
+		env: {
+			TERM_PROGRAM: 'vscode',
+			TERM_PROGRAM_VERSION: '2.70.0'
 		},
 		stream: {
 			isTTY: true

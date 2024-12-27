@@ -97,7 +97,8 @@ function supportsHyperlink(stream) {
 			case 'WezTerm':
 				return version.major >= 20200620;
 			case 'vscode':
-				return version.major >= 1 && version.minor >= 72;
+				// eslint-disable-next-line no-mixed-operators
+				return version.major > 1 || version.major === 1 && version.minor >= 72;
 			case 'ghostty':
 				return true;
 			// No default
