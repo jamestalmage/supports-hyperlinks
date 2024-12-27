@@ -133,6 +133,88 @@ test('not supported WezTerm 20200608, tty stream', t => {
 	}));
 });
 
+test('not supported vscode <= 1.0 no stream supplied', t => {
+	t.false(isSupported({
+		env: {
+			TERM_PROGRAM: 'vscode',
+			TERM_PROGRAM_VERSION: '0.72.0'
+		}
+	}));
+});
+
+test('not supported vscode <= 1.0 no tty stream', t => {
+	t.false(isSupported({
+		env: {
+			TERM_PROGRAM: 'vscode',
+			TERM_PROGRAM_VERSION: '0.72.0'
+		},
+		stream: {
+			isTTY: true
+		}
+	}));
+});
+
+test('not supported vscode 1.0 no stream supplied', t => {
+	t.false(isSupported({
+		env: {
+			TERM_PROGRAM: 'vscode',
+			TERM_PROGRAM_VERSION: '1.0.0'
+		}
+	}));
+});
+
+test('not supported vscode 1.0 tty stream', t => {
+	t.false(isSupported({
+		env: {
+			TERM_PROGRAM: 'vscode',
+			TERM_PROGRAM_VERSION: '1.0.0'
+		},
+		stream: {
+			isTTY: true
+		}
+	}));
+});
+
+test('supported vscode >= 1.72.0 no stream supplied', t => {
+	t.true(isSupported({
+		env: {
+			TERM_PROGRAM: 'vscode',
+			TERM_PROGRAM_VERSION: '1.72.0'
+		}
+	}));
+});
+
+test('supported vscode >= 1.72.0 tty stream', t => {
+	t.true(isSupported({
+		env: {
+			TERM_PROGRAM: 'vscode',
+			TERM_PROGRAM_VERSION: '1.72.0'
+		},
+		stream: {
+			isTTY: true
+		}
+	}));
+});
+
+test('supported ghostty no stream supplied', t => {
+	t.true(isSupported({
+		env: {
+			TERM_PROGRAM: 'ghostty'
+		}
+	}));
+});
+
+test('supported ghostty tty stream', t => {
+	t.true(isSupported({
+		env: {
+			TERM_PROGRAM: 'ghostty'
+		},
+		stream: {
+			isTTY: true
+		}
+	}));
+});
+
 test('not supported in VTE 0.50.0', t => {
 	t.false(isSupported({
 		env: {
