@@ -38,7 +38,8 @@ function supportsHyperlink(stream) {
 		TEAMCITY_VERSION,
 		TERM_PROGRAM,
 		TERM_PROGRAM_VERSION,
-		VTE_VERSION
+		VTE_VERSION,
+		TERM,
 	} = process.env;
 
 	if (FORCE_HYPERLINK) {
@@ -113,6 +114,13 @@ function supportsHyperlink(stream) {
 
 		const version = parseVersion(VTE_VERSION);
 		return version.major > 0 || version.minor >= 50;
+	}
+
+	switch (TERM) {
+		case 'alacritty':
+			// Support added in v0.11 (2022-10-13)
+			return true;
+		// No default
 	}
 
 	return false;
