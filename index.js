@@ -110,7 +110,7 @@ function supportsHyperlink(stream) {
 
 	switch (TERM) {
 		case 'alacritty':
-			// Support added v0.11 (2022-10-13)
+			// Support added in v0.11 (2022-10-13)
 			return true;
 		// No default
 	}
