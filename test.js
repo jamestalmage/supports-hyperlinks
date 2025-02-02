@@ -180,6 +180,7 @@ test('supported in VTE 5105 (0.51.5)', t => {
 		}
 	}));
 });
+
 test('supported in alacritty', t => {
 	t.true(isSupported({
 		env: {
@@ -187,6 +188,7 @@ test('supported in alacritty', t => {
 		},
 	}));
 });
+
 test('empty env not supported', t => {
 	t.false(isSupported({env: {}}));
 });
