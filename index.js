@@ -29,6 +29,7 @@ function parseVersion(versionString) {
 @param {{ isTTY?: boolean | undefined }} stream
 @returns {boolean}
 */
+// eslint-disable-next-line complexity
 function supportsHyperlink(stream) {
 	const {
 		CI,
@@ -98,6 +99,8 @@ function supportsHyperlink(stream) {
 			case 'vscode':
 				// eslint-disable-next-line no-mixed-operators
 				return version.major > 1 || version.major === 1 && version.minor >= 72;
+			case 'ghostty':
+				return true;
 			// No default
 		}
 	}
